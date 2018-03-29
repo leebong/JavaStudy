@@ -53,7 +53,7 @@ public class Rect {
 		this.calHeight();
 	}
 	
-	public Rect(Point leftUp, Point rightDwon) {
+	public Rect(Point leftUp, Point rightDown) {
 		this.leftUp = new Point(leftUp);
 		this.rightDown = new Point(rightDown);
 		this.calWidth();
