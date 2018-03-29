@@ -27,7 +27,6 @@ public class Main {
 		Rect r3 = new Rect(new Point(0,0), new Point(10,-10));
 		r3.print();
 
-		
 			
 	}
 	
