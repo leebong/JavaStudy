@@ -24,5 +24,18 @@ public class Point {
 	public void print() {
 		System.out.println("(" + x + "," + y + ")");
 	}
+	
+	public Point() {
+		
+	}
+	public Point(int x, int y) {
+		this.setX(x);
+		this.setY(y);
+	}
+	public Point(Point p) {
+		this.setX(p.x);
+		this.setY(p.y);
+		
+	}
 
 }
