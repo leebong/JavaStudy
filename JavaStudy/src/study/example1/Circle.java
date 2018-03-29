@@ -55,7 +55,7 @@ public class Circle {
 		public void moveCenter(int x, int y) {
 			this.setCenter(x, y);
 		}
-		public void resize(int r) {
+		public void resize(double r) {
 			this.setRadius(r);
 		}
 	
