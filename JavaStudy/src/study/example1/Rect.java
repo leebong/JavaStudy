@@ -60,5 +60,15 @@ public class Rect {
 		this.calHeight();
 	}
 	
+	public void print() {
+		System.out.println("사각형의 정보");
+		System.out.print("좌상의 점 : ");
+		leftUp.print();
+		System.out.println("우상의 점");
+		rightDown.print();
+		System.out.println("가로 : " + width);
+		System.out.println("세로 : " + height);	
+	}
+	
 }
 
