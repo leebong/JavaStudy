@@ -51,6 +51,13 @@ public class Circle {
 			System.out.println("중심좌표 : " + centerX + "," + centerY);
 			System.out.println("반지름 : " + radius);
 		}
+		
+		public void moveCenter(int x, int y) {
+			this.setCenter(x, y);
+		}
+		public void resize(int r) {
+			this.setRadius(r);
+		}
 	
 
 }
