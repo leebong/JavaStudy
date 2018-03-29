@@ -46,7 +46,11 @@ public class Circle {
 			this.setCenterY(y);
 		}
 		
-		
+		public void printCircle() {
+			System.out.println("원의 정보");
+			System.out.println("중심좌표 : " + centerX + "," + centerY);
+			System.out.println("반지름 : " + radius);
+		}
 	
 
 }
