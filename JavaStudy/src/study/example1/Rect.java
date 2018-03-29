@@ -24,6 +24,7 @@ public class Rect {
 	public void print() {
 		System.out.println("(" + x + "," + y + ")");
 	}
+	
 		
 }
 
