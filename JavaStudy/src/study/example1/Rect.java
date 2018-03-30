@@ -64,10 +64,34 @@ public class Rect {
 		System.out.println("사각형의 정보");
 		System.out.print("좌상의 점 : ");
 		leftUp.print();
-		System.out.println("우상의 점");
+		System.out.print("우상의 점 : ");
 		rightDown.print();
 		System.out.println("가로 : " + width);
 		System.out.println("세로 : " + height);	
+	}
+	
+	public void resize(int width, int height) {
+		//크기조정시 왼쪽 위의 점은 고정
+		this.width = width;
+		this.height = height;
+		this.rightDown.move(this.leftUp.getX()+width, 
+				this.leftUp.getY()-height);
+		
+		
+		
+	}
+	public void move(int x, int y) {
+		//위치 조정
+		//x좌표로 매개변수 x픽셀만큼 이동하고,
+		//y좌표로 매개변수 y픽셀만큼 이동한다.
+		
+		this.leftUp.move(
+				this.leftUp.getX()+x, 
+				this.leftUp.getY()+y);
+		this.rightDown.move(
+				this.rightDown.getX()+x, 
+				this.rightDown.getY()+y);
+		
 	}
 	
 }
