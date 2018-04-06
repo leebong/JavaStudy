@@ -5,6 +5,7 @@ class Parents {
 	protected int y;
 	private int z;
 	
+	
 	public int getX() {
 		return x;
 	}
