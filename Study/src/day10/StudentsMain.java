@@ -1,5 +1,7 @@
 package day10;
 
+import java.util.Scanner;
+
 public class StudentsMain {
 
 	public static void main(String[] args) {
@@ -30,6 +32,7 @@ public class StudentsMain {
 		 * 2. 학생 한명의 정보를 객체 sm이 가지고 있는 insertStudents메소드를 이요하여 출력 
 		 */
 		
+		/*
 		StudentsManager sm = new StudentsManager(10);
 		sm.insertStudents("홍길동", 1,1,1,90,80,70);
 		sm.insertStudents("임꺽정", 1,2,10,70,60,50);
@@ -48,6 +51,98 @@ public class StudentsMain {
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
+		*/
+		Scanner scan = new Scanner(System.in);
+		StudentsManager sm = new StudentsManager(10);
+		
+		while(true) {
+			
+			printMenu();
+			int menu = scan.nextInt();
+			try {
+				if(menu == 1) {
+					System.out.println("이름 : ");
+					String Name = scan.next();
+					System.out.println("학년 : ");
+					int Grade = scan.nextInt();
+					System.out.println("학반 : ");
+					int Half = scan.nextInt();
+					System.out.println("번호 : ");
+					int Number = scan.nextInt();
+					System.out.println("국어 : ");
+					int Korea = scan.nextInt();
+					System.out.println("영어 : ");
+					int English = scan.nextInt();
+					System.out.println("수학 : ");
+					int Mathemetics = scan.nextInt();
+					sm.insertStudents(Name, Grade, Half, Number, 
+									Korea, English, Mathemetics);
+					
+				}
+				else if(menu == 2) {					
+					System.out.println("학년 : ");
+					int Grade = scan.nextInt();
+					System.out.println("학반 : ");
+					int Half = scan.nextInt();
+					System.out.println("번호 : ");		
+					int Number = scan.nextInt();
+					System.out.println("이름 : ");
+					String Name = scan.next();
+					System.out.println("국어 : ");
+					int Korea = scan.nextInt();
+					System.out.println("영어 : ");
+					int English = scan.nextInt();
+					System.out.println("수학 : ");
+					int Mathemetics = scan.nextInt();
+					sm.updateStudents(Grade, Half, Number, Name, 
+										Korea, English, Mathemetics);
+					
+				
+				}
+				else if(menu == 3) {
+					sm.printManager();
+				}
+				if(menu == 4) {
+					System.out.println("________________");
+					System.out.println("프로그램 종료되었습니다.");
+					System.out.println("________________");
+					break;
+				}
+			}
+			catch(Exception e) {
+				System.out.println(e.getMessage());
+			}		
+		}		
+		scan.close();
+			
+	}
+	
+	/**
+	 * 1. 메뉴를 출력하는 메소드
+	 * 1.1 매개변수 : 없음
+	 * 1.2 리턴타입 : 없음
+	 * 1.3 메소드명 : printMenu
+	 * 1.4 구현 - 아래와 같이 출력 system.out.pirntln()을 이용
+	 * 메뉴
+	 * 1. 학생정보 추가
+	 * 2. 학생정보 수정
+	 * 3. 학생정보 출력
+	 * 4. 종료
+	 * 
+	 */
+	
+	public static void printMenu() {
+		System.out.println("================");
+		System.out.println("=     메뉴            =");
+		System.out.println("================");
+		System.out.println("1. 학생정보 추가 : ");
+		System.out.println("2. 학생정보 수정 : ");
+		System.out.println("3. 학생정보 출력 : ");
+		System.out.println("4. 종료");
+		System.out.println("================");
+		System.out.println("메뉴선택 : ");
+		
+		
 		
 	}
 

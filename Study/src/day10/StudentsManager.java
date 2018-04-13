@@ -99,11 +99,10 @@ public class StudentsManager {
 	 * 4.4.4.3 해당학생의 정보가 없으면 null값을 리턴한다.
 	 * 
 	 */
-	  
-	
+	  	
 	public void insertStudents(String Name, int Grade, int Half, int Number,
-								int Korea, int English, int Methemetics) {
-		//std[nowCount] = new Students(Name, Grade, Half, Number, Korea, English, Methemetics);
+								int Korea, int English, int Mathemetics) {
+		//std[nowCount] = new Students(Name, Grade, Half, Number, Korea, English, Mathemetics);
 		//nowCount++;
 		//위 두 코드를 한줄로 쓴다(nowCount는 후위연산자)
 		
@@ -119,7 +118,7 @@ public class StudentsManager {
 		
 		
 		
-		std[nowCount++] = new Students(Name, Grade, Half, Number, Korea, English, Methemetics);		
+		std[nowCount++] = new Students(Name, Grade, Half, Number, Korea, English, Mathemetics);		
 	}
 	
 	public void printManager() {	

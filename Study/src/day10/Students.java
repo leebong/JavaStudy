@@ -94,7 +94,6 @@ public class Students {
 		this(Name, Grade, Half, Number,0,0,0);
 	}
 	
-
 	/**
 	 * 4. 메소드 생성
 	 * 4-1 출력메소드 - 학생 정보를 출력하는 메소드 
