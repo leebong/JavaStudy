@@ -134,6 +134,15 @@ public class Students {
 		this.setEnglish(English);
 		this.setMathemetics(Mathemetics);
 	}
-	
+
+	public Students clone() {
+				
+		/*Students tmp1 = new Students(this.getName(), this.getGrade(), this.getHalf(),
+									this.getNumber(), this.getKorea(), this.getEnglish(),
+									this.getMathemetics());*/
+		//위 tmp1 코드를 단축함
+		Students tmp = new Students(Name, Grade, Half, Number, Korea, English, Mathemetics);
+		return tmp;
+	}
 	
 }

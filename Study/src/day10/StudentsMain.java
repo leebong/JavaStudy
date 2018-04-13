@@ -32,9 +32,22 @@ public class StudentsMain {
 		
 		StudentsManager sm = new StudentsManager(10);
 		sm.insertStudents("홍길동", 1,1,1,90,80,70);
-		sm.insertStudents("임꺽정", 1,1,1,70,60,50);
+		sm.insertStudents("임꺽정", 1,2,10,70,60,50);
 		sm.printManager();
+		//학년, 반, 번호를 조회하여 출력한다.
+		//System.out.println(sm.searchIndexStudents(1, 1, 1));
 		
+		//수정 할  학년, 반, 번호를 조회한다.
+		//int index  = sm.searchIndexStudents(1, 2, 10);
+		//조회된 내용을 출력한다.
+		System.out.println("수정후");
+		try {
+			sm.updateStudents(1, 1, 1, "장보고", 55, 55, 55);
+			sm.updateStudents(1, 2, 1, "대장금", 99, 99, 99);
+			sm.printManager();
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 
