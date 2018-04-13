@@ -79,23 +79,33 @@ public class StudentsMain {
 									Korea, English, Mathemetics);
 					
 				}
-				else if(menu == 2) {					
+				else if(menu == 2) {
+					
 					System.out.println("학년 : ");
 					int Grade = scan.nextInt();
 					System.out.println("학반 : ");
 					int Half = scan.nextInt();
-					System.out.println("번호 : ");		
+					System.out.println("번호 : ");
 					int Number = scan.nextInt();
-					System.out.println("이름 : ");
-					String Name = scan.next();
-					System.out.println("국어 : ");
-					int Korea = scan.nextInt();
-					System.out.println("영어 : ");
-					int English = scan.nextInt();
-					System.out.println("수학 : ");
-					int Mathemetics = scan.nextInt();
-					sm.updateStudents(Grade, Half, Number, Name, 
-										Korea, English, Mathemetics);
+					try {
+						sm.searchIndexStudents(Grade, Half, Number);
+						
+						System.out.println("이름 : ");
+						String Name = scan.next();
+						System.out.println("국어 : ");
+						int Korea = scan.nextInt();
+						System.out.println("영어 : ");
+						int English = scan.nextInt();
+						System.out.println("수학 : ");
+						int Mathemetics = scan.nextInt();
+						sm.updateStudents(Grade, Half, Number, Name, 
+											Korea, English, Mathemetics);
+					}
+					catch(Exception e) {
+						System.out.println(e.getMessage());
+					}
+					
+					
 					
 				
 				}

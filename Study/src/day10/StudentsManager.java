@@ -131,10 +131,10 @@ public class StudentsManager {
 		
 		for(int i=0; i<nowCount; i++) {
 			if(Grade == std[i].getGrade() && Half == std[i].getHalf() && 
-							Number == std[i].getNumber() ) 			
+							Number == std[i].getNumber() ) 	
 			return i;			
 		}		
-		return -1;
+		throw new RuntimeException("수정할 주소가 없습니다.");
 			
 	}
 	
@@ -142,8 +142,8 @@ public class StudentsManager {
 									String Name, int Korea, int English, int Mathemetics) {
 		int index = this.searchIndexStudents(Grade, Half, Number);
 		if(index == -1)
-			throw new RuntimeException("수정할 주소가 없습니다.");
-			//return null;
+			
+			return null;
 		
 		std[index].modifyStudents(Name, Grade, Half, Number, 
 									Korea, English, Mathemetics);			
