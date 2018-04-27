@@ -18,10 +18,10 @@ class FrameCal extends Frame{
 	TextField tf_result;
 	Button bt_1, bt_2, bt_3, bt_4, bt_5, bt_6, bt_7, bt_8,
 			bt_9, bt_0,bt_sum, bt_sub, bt_div, bt_mul, bt_equal,
-			bt_c;
+			bt_clear;
 	
 	int num1, num2, res;
-	char op;
+	char op='+';
 	
 	public FrameCal() {
 		this.setFrame();
@@ -45,7 +45,7 @@ class FrameCal extends Frame{
 		this.add(bt_mul);
 		this.add(bt_div);
 		this.add(bt_equal);
-		this.add(bt_c);
+		this.add(bt_clear);
 		
 		
 		ListenerCal listener = new ListenerCal(this);
@@ -67,7 +67,7 @@ class FrameCal extends Frame{
 		this.bt_mul.addActionListener(listener);
 		this.bt_div.addActionListener(listener);
 		this.bt_equal.addActionListener(listener);
-		this.bt_c.addActionListener(listener);
+		this.bt_clear.addActionListener(listener);
 	
 	}
 	
@@ -87,6 +87,10 @@ class FrameCal extends Frame{
 		this.tf_result.setEnabled(false);
 		this.tf_result.setFont(new Font("Times",Font.BOLD,50));
 		this.tf_result.setText("0");
+		this.op = '+';
+		this.setBackground(Color.cyan);
+		
+
 	}
 	
 	//버튼 설정메소드
@@ -96,6 +100,9 @@ class FrameCal extends Frame{
 		int startY = 40+80;
 		int width = 50;
 		int height = 50;
+		this.setFont(new Font("Times",Font.BOLD,30));
+		this.setForeground(Color.red);
+		
 		
 		bt_0 = new Button("0");
 		bt_1 = new Button("1");
@@ -112,7 +119,7 @@ class FrameCal extends Frame{
 		bt_mul = new Button("*");
 		bt_div = new Button("/");
 		bt_equal = new Button("=");
-		bt_c = new Button("C");
+		bt_clear = new Button("C");
 		
 		
 		bt_0.setSize(width*3+gab*2, height);
@@ -130,14 +137,14 @@ class FrameCal extends Frame{
 	  bt_mul.setSize(width, height);
 	  bt_div.setSize(width, height);
 	bt_equal.setSize(width, height*3+gab*2);
-	  bt_c.setSize(width, height);
+	bt_clear.setSize(width, height);
 		
 		
 		bt_7.setLocation(startX+width*0+gab*0, startY+height*0+gab*1);
 		bt_8.setLocation(startX+width*1+gab*1, startY+height*0+gab*1);
 		bt_9.setLocation(startX+width*2+gab*2, startY+height*0+gab*1);
 	  bt_div.setLocation(startX+width*3+gab*3, startY+height*0+gab*1);
-	    bt_c.setLocation(startX+width*4+gab*4, startY+height*0+gab*1);
+	bt_clear.setLocation(startX+width*4+gab*4, startY+height*0+gab*1);
 		bt_4.setLocation(startX+width*0+gab*0, startY+height*1+gab*2);
 		bt_5.setLocation(startX+width*1+gab*1, startY+height*1+gab*2);
 		bt_6.setLocation(startX+width*2+gab*2, startY+height*1+gab*2);
@@ -156,6 +163,7 @@ class FrameCal extends Frame{
 
 class ListenerCal implements WindowListener, ActionListener{
 	FrameCal frame;
+	char tmp;
 	
 	public ListenerCal(FrameCal frame) {
 		this.frame = frame;
@@ -228,7 +236,7 @@ class ListenerCal implements WindowListener, ActionListener{
 			}
 			else
 			{	//숫자 이어 붙이기
-				if(!(this.isOperation(frame.op))) {
+				if(!(this.isOperation(tmp))) {
 					if(this.frame.tf_result.getText().length() < 9) {
 						this.frame.tf_result.setText(
 								this.frame.tf_result.getText()+
@@ -251,12 +259,17 @@ class ListenerCal implements WindowListener, ActionListener{
 			}
 			
 		}catch(Exception e) {
+			//Clear
+			if((bt.getLabel().equals("C"))) {
+				frame.num1 = 0;
+				frame.num2 = 0;
+				frame.res = 0;
+				frame.op = '+';
+				frame.tf_result.setText("0");
+			}
 			//연산자일 경우
-			//if((bt.getLabel().equals("C"))) {
-				
-			//}else 
-			if(isOperation(bt.getLabel().charAt(0))) {
-				if(isOperation(frame.op)) {
+			else if(isOperation(bt.getLabel().charAt(0))) {
+				if(!(this.isOperation(tmp))) {
 					frame.num2 = Integer.parseInt(frame.tf_result.getText());
 					frame.tf_result.setText(this.Cal());
 					
@@ -264,8 +277,7 @@ class ListenerCal implements WindowListener, ActionListener{
 				else {
 					frame.num1 = Integer.parseInt(frame.tf_result.getText());
 				}
-				frame.op = bt.getLabel().charAt(0); //연산자 덮어쓰기
-				
+				frame.op = bt.getLabel().charAt(0); //연산자 덮어쓰기			
 			}
 			// = 이 입력되면
 			else{
@@ -274,7 +286,7 @@ class ListenerCal implements WindowListener, ActionListener{
 			System.out.println(frame.num1);
 			System.out.println(bt.getLabel().charAt(0));
 		}
-		
+		tmp = bt.getLabel().charAt(0);
 	}
 	
 	private boolean isOperation(char ch) {
